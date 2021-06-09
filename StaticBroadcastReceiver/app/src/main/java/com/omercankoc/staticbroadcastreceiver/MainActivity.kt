@@ -14,19 +14,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun innerClass(view : View){
-        val intent : Intent = Intent(this,BroadcastInnerClass::class.java)
+    fun insideBroadcast(view : View){
+        // InsideBroadcast sinifina veri gonder.
+        val intent : Intent = Intent(this,InsideBroadcast::class.java)
+        val bundle : Bundle = Bundle()
+        bundle.putString("message","Static Broadcast Receiver is running inside the Class...")
+        intent.putExtras(bundle)
         sendBroadcast(intent)
     }
 
-    fun broadcastClass(view : View){
-        val intent : Intent = Intent(this,BroadcastClass::class.java)
+    fun outsideBroadcast(view : View){
+        // OutsideBroadcast sinifina veri gonder.
+        val intent : Intent = Intent(this,OutsideBroadcast::class.java)
+        val bundle : Bundle = Bundle()
+        bundle.putString("message","Static Broadcast Receiver is running outside the Class...")
+        intent.putExtras(bundle)
         sendBroadcast(intent)
     }
 
-    class BroadcastInnerClass : BroadcastReceiver() {
+    class InsideBroadcast : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            Toast.makeText(context,"Inner Class Broadcast",Toast.LENGTH_LONG).show()
+            // Gonderilen veriyi al ve goster.
+            var bundle : Bundle = intent!!.extras!!
+            var message : String? = bundle.getString("message")
+            Toast.makeText(context,message,Toast.LENGTH_LONG).show()
         }
     }
 }

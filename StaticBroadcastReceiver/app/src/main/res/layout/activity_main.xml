@@ -13,12 +13,12 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:text="Inner Class"
-        android:onClick="innerClass" />
+        android:onClick="insideBroadcast" />
 
     <Button
         android:id="@+id/buttonBroadcastClass"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:text="Broadcast Class"
-        android:onClick="broadcastClass"/>
+        android:onClick="outsideBroadcast"/>
 </LinearLayout>
