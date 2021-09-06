@@ -1,9 +1,11 @@
-## Static Broadcast Receiver
+# Static Broadcast Receiver
+
 ### Let's add receivers to the manifest file:
 ```xml
 <receiver android:name=".MainActivity$InsideBroadcast"></receiver>
 <receiver android:name=".OutsideBroadcast"></receiver>
 ```
+
 ### 1. Creating a Broadcast Receiver class within its own class:
 ```kotlin
 class InsideBroadcast : BroadcastReceiver() {
@@ -15,6 +17,7 @@ class InsideBroadcast : BroadcastReceiver() {
     }
 }
 ```
+
 ### Running a Broadcast Receiver class within its own class:
 ```kotlin
 fun insideBroadcast(view : View){
@@ -26,6 +29,7 @@ fun insideBroadcast(view : View){
     sendBroadcast(intent)
 }
 ```
+
 ### 2. Creating a Broadcast Receiver class other than its own class:
 ```kotlin
 class OutsideBroadcast : BroadcastReceiver() {
@@ -37,6 +41,7 @@ class OutsideBroadcast : BroadcastReceiver() {
     }
 }
 ```
+
 ### Calling a Broadcast Receiver class:
 ```kotlin
 fun outsideBroadcast(view : View){
